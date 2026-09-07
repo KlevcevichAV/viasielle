@@ -9,7 +9,7 @@
       </p>
 
       <a
-          href="https://t.me/+FsZnUO1HrRwzYTI6"
+          href="https://t.me/+USCELYP_8I82M2Ji"
           target="_blank"
           class="telegram-button"
       >
