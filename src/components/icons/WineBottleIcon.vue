@@ -34,7 +34,7 @@
 <script setup>
 defineProps({
   size: { type: [Number, String], default: 40 },
-  color: { type: String, default: '#78866b' },
+  color: { type: String, default: '#b3122e' },
   rotate: { type: [Number, String], default: -15 }
 })
 </script>

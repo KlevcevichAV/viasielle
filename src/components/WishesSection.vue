@@ -8,7 +8,7 @@
       </p>
 
       <div class="wine-text-container">
-        <WineBottleIcon :size="35" :rotate="-15" color="#78866b" class="wine-icon" />
+        <WineBottleIcon :size="35" :rotate="-15" color="#b3122e" class="wine-icon" />
         <p class="description wine-description">
           Чтобы наш праздник оставил долгое послевкусие, мы решили собрать «Свадебную винотеку».<br>Вместо цветов, которые быстро отцветают, будем рады получить от вас бутылку вина. Каждая из них станет поводом вспомнить о вас и о нашем особенном дне в будущем.
         </p>

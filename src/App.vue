@@ -33,13 +33,21 @@
     <div :class="['content-wrapper', { 'blurred': isMenuOpen }]">
       <DecorativeDecor />
       <HeroSection id="hero"/>
+      <OrnamentBorder />
       <CountdownTimer id="timer"/>
+      <OrnamentBorder />
       <ProgramSection id="program"/>
+      <OrnamentBorder />
       <LocationSection id="location"/>
+      <OrnamentBorder />
       <DressCode id="dresscode"/>
+      <OrnamentBorder />
       <RSVPForm id="rsvp"/>
+      <OrnamentBorder />
       <WishesSection id="wishes"/>
+      <OrnamentBorder />
       <JoinToChat id="chat"/>
+      <OrnamentBorder />
       <FinalSection id="final"/>
     </div>
   </main>
@@ -57,6 +65,7 @@ import JoinToChat from "@/components/JoinToChat.vue";
 import WishesSection from "@/components/WishesSection.vue";
 import FinalSection from "@/components/FinalSection.vue";
 import DecorativeDecor from "@/components/DecorativeDecor.vue";
+import OrnamentBorder from "@/components/OrnamentBorder.vue";
 
 const isMenuOpen = ref(false)
 

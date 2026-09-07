@@ -15,7 +15,7 @@
             id="curve-progress"
             d="M200,0 Q280,150 200,300 T200,600 T200,900 T200,1000"
             fill="none"
-            stroke="#78866b"
+            stroke="#b3122e"
             stroke-width="3"
             stroke-linecap="round"
             style="stroke-dasharray: 0 10000;"
@@ -211,8 +211,8 @@ onUnmounted(() => {
 }
 
 .program-item.reached .dot {
-  background-color: #78866b;
-  box-shadow: 0 0 0 2px #78866b;
+  background-color: #b3122e;
+  box-shadow: 0 0 0 2px #b3122e;
 }
 
 /* Позиционирование элементов слева от кривой */

@@ -1,28 +1,29 @@
-/* color palette from <https://github.com/vuejs/theme> */
+/* Беларускі арнамент: чырвоны і чорны на льняным фоне (рушнік) */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
+  --vt-c-white: #fdfaf3;
+  --vt-c-white-soft: #f7f0df;
+  --vt-c-white-mute: #efe4c8;
 
-  --vt-c-black: #1a1a1a;
-  --vt-c-black-soft: #242424;
-  --vt-c-black-mute: #2c2c2c;
+  --vt-c-black: #1b1512;
+  --vt-c-black-soft: #241d19;
+  --vt-c-black-mute: #2c2420;
 
-  --vt-c-indigo: #2c3e50;
+  --vt-c-indigo: #241d19;
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(255, 255, 255, 0.15);
+  --vt-c-divider-light-1: rgba(179, 18, 46, 0.25);
+  --vt-c-divider-light-2: rgba(28, 20, 16, 0.14);
+  --vt-c-divider-dark-1: rgba(226, 68, 92, 0.3);
   --vt-c-divider-dark-2: rgba(255, 255, 255, 0.1);
 
   --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: #e1e1e1;
-  --vt-c-text-dark-2: #b3b3b3;
+  --vt-c-text-light-2: rgba(36, 29, 25, 0.68);
+  --vt-c-text-dark-1: #f3ebd8;
+  --vt-c-text-dark-2: #cbbfa4;
 
   /* Primary colors - light mode defaults */
-  --color-primary: #78866b; /* Sage green */
-  --color-secondary: #624a44; /* Brown/sand */
+  --color-primary: #b3122e; /* Чырвоны (традыцыйны колер арнаменту) */
+  --color-secondary: #1c1512; /* Чорны (акцэнт вышыўкі) */
+  --color-ornament-bg: var(--vt-c-white);
   --section-gap: 160px;
 }
 
@@ -38,11 +39,15 @@
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
 
-  --color-overlay: rgba(0, 0, 0, 0.2);
-  --color-menu-bg: rgba(230, 213, 195, 0.98);
+  --color-overlay: rgba(28, 21, 18, 0.25);
+  --color-menu-bg: rgba(253, 250, 243, 0.98);
 }
 
 /* Dark mode */
+[data-theme='dark'] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpolygon points='30,4 50,30 30,56 10,30' fill='none' stroke='%23e2445c' stroke-opacity='0.06' stroke-width='2'/%3E%3C/svg%3E");
+}
+
 [data-theme='dark'] {
   --color-background: var(--vt-c-black);
   --color-background-soft: var(--vt-c-black-soft);
@@ -54,11 +59,12 @@
   --color-heading: var(--vt-c-text-dark-1);
   --color-text: var(--vt-c-text-dark-2);
 
-  --color-primary: #8a9b7c; /* Muted sage green */
-  --color-secondary: #c9b097; /* Muted sand */
+  --color-primary: #e2445c; /* Асвятлены чырвоны для цёмнай тэмы */
+  --color-secondary: #d9c9a8; /* Льняны акцэнт */
+  --color-ornament-bg: var(--vt-c-black);
 
-  --color-overlay: rgba(0, 0, 0, 0.4);
-  --color-menu-bg: rgba(30, 30, 30, 0.98);
+  --color-overlay: rgba(0, 0, 0, 0.45);
+  --color-menu-bg: rgba(27, 21, 18, 0.98);
 }
 
 *,
@@ -72,7 +78,8 @@
 body {
   min-height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background-color: var(--color-background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpolygon points='30,4 50,30 30,56 10,30' fill='none' stroke='%23b3122e' stroke-opacity='0.05' stroke-width='2'/%3E%3C/svg%3E");
   transition:
     color 0.5s,
     background-color 0.5s;

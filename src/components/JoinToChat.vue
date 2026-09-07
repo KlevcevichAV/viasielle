@@ -5,7 +5,7 @@
 
       <p class="description">
         Место для ваших улыбок, живых кадров и непринужденных видео. Будем счастливы увидеть наш праздник вашими глазами. Заходите в чат и делитесь моментами!
-        <HeartIcon :size="18" color="#78866b" filled class="heart-inline" />
+        <HeartIcon :size="18" color="#b3122e" filled class="heart-inline" />
       </p>
 
       <a
@@ -77,7 +77,7 @@ import HeartIcon from './icons/HeartIcon.vue'
   padding: 0.9rem 1.6rem;
   border-radius: 999px;
 
-  background: #78866b;
+  background: #b3122e;
   color: white;
   font-weight: 500;
   text-decoration: none;
@@ -88,7 +88,7 @@ import HeartIcon from './icons/HeartIcon.vue'
 
 .telegram-button:hover {
   transform: translateY(-2px);
-  background: #6a7860; /* чуть темнее при ховере */
+  background: #8f0f24; /* чуть темнее при ховере */
   box-shadow: 0 6px 18px rgba(120, 134, 107, 0.4);
 }
 

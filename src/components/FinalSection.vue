@@ -5,9 +5,9 @@
         <h3 class="title">Топ-1 мест, куда сходить этой осенью: <span class="main-text">наша свадьба!</span></h3>
         <p class="sub-text">Будем очень рады разделить этот день с вами!</p>
         <div class="final-photo-container">
-          <img src="@/assets/IMG_9325.JPG" alt="Александр и Маргарита" class="final-photo" />
+          <img src="@/assets/IMG_9325.JPG" alt="Николай и Оксана" class="final-photo" />
         </div>
-        <p class="signature">С любовью,<br>Александр и Маргарита</p>
+        <p class="signature">С любовью,<br>Николай и Оксана</p>
       </div>
     </div>
   </section>
@@ -50,7 +50,7 @@
   font-weight: 400;
   text-transform: none;
   font-size: 1.2em;
-  color: #78866b;
+  color: #b3122e;
   display: inline-block;
   padding: 0 5px;
   margin: 0;
@@ -88,7 +88,7 @@
 .signature {
   font-family: 'Alex Brush', cursive;
   font-size: 2.5rem;
-  color: #78866b;
+  color: #b3122e;
   margin-top: 2rem;
   margin-bottom: 0;
   line-height: 1.2;
