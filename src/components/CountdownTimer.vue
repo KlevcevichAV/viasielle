@@ -30,7 +30,7 @@
 <script setup>
 import {ref, onMounted, onUnmounted, computed} from 'vue'
 
-const targetDate = new Date('2026-09-04T15:30:00').getTime()
+const targetDate = new Date('2026-10-23T15:30:00').getTime()
 
 const isExpired = ref(false)
 const timeLeft = ref({

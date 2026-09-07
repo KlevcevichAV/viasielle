@@ -6,7 +6,7 @@
       <h1 class="main-title">WEDDING DAY</h1>
       <div class="details">
         <p class="names">Николай & Оксана</p>
-        <p class="date">22.10.2026</p>
+        <p class="date">23.10.2026</p>
       </div>
     </div>
   </section>
