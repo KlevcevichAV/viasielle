@@ -5,7 +5,7 @@
     <div class="hero-content">
       <h1 class="main-title">WEDDING DAY</h1>
       <div class="details">
-        <p class="names">Александр & Маргарита</p>
+        <p class="names">Николай & Оксана</p>
         <p class="date">04.09.2026</p>
       </div>
     </div>
