@@ -49,10 +49,8 @@
 import { onMounted, onUnmounted, ref, nextTick } from 'vue';
 
 const timeline = [
-  { time: '15:30', title: 'Сбор гостей' },
-  { time: '16:30', title: 'Церемония' },
-  { time: '17:00', title: 'Начало банкета' },
-  { time: '22:00', title: 'Праздничный торт' },
+  { time: '14:30', title: 'ЗАГС' },
+  { time: '15:30', title: 'Фуршет' },
   { time: '23:00', title: 'Завершение свадьбы и начало счастливой жизни' }
 ];
 

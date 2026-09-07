@@ -3,7 +3,7 @@
     <div class="container">
       <h2 class="section-title">RSVP</h2>
       <p class="description">
-        Пожалуйста, подтвердите ваше присутствие до 14.08 включительно, заполнив форму ниже.
+        Пожалуйста, подтвердите ваше присутствие до 02.10 включительно, заполнив форму ниже.
       </p>
 
       <v-form ref="formRef" v-model="isFormValid" @submit.prevent="submitForm" class="rsvp-form">
@@ -72,19 +72,6 @@
 
           <!-- Alcohol Preferences -->
           <div class="form-section">
-            <p class="question-text">Пожелания по напиткам:</p>
-            <v-select
-              v-model="form.alcohol"
-              :items="alcoholOptions"
-              label="Выберите ваши предпочтения"
-              multiple
-              chips
-              :rules="[rules.requiredSelection]"
-              variant="outlined"
-              density="comfortable"
-              class="mt-2"
-            ></v-select>
-            
             <v-text-field
               v-if="form.alcohol.includes('Другое')"
               v-model="form.alcoholCustom"
@@ -123,7 +110,7 @@
 
           <!-- Wishes / Notes -->
           <div class="form-section">
-            <p class="question-text">Ваши пожелания или особые пометки для нас:</p>
+            <p class="question-text">Есть ли аллергия(на что именно)?</p>
             <v-textarea
               v-model="form.wishes"
               label="Ваше сообщение"

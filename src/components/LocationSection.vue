@@ -4,8 +4,8 @@
 
     <!-- Новый блок с локацией -->
     <div class="location-info">
-      <p class="location-name">TARASOVO VILLAGE</p>
-      <p class="location-address">(д. Тарасово, ул. Олимпийская, 3)</p>
+      <p class="location-name">Усадьба Славичи</p>
+      <p class="location-address">(д. Славичи, 1)</p>
     </div>
 
     <div class="location-gallery">
@@ -15,21 +15,13 @@
     </div>
 
     <div class="map-card">
-
-      <iframe
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3Ac1f3bfe9e9e99a1c16a4ce603e12a8291885df5c033615875bb2814b123d4928&amp;source=constructor"
-          width="100%"
-          height="450"
-          frameborder="0"
-          allowfullscreen="true"
-          style="position:relative;">
-      </iframe>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Adb90825f32551a7a8051a52fe5e55457cb797e640735da5caac25eb1c12ad6e9&amp;source=constructor" width="500" height="400" frameborder="0"/>
     </div>
   </section>
 </template>
 
 <script setup>
-const locationImages = Object.values(import.meta.glob('@/assets/location/*.{webp,jpeg,JPG,png}', { eager: true, import: 'default' }))
+const locationImages = Object.values(import.meta.glob('@/assets/location/*.{webp,jpeg,JPG,png,PNG}', { eager: true, import: 'default' }))
 </script>
 
 <style scoped>
