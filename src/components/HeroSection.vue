@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   /* Используем твое фоновое изображение */
-  background-image: url('@/assets/IMG_9362.JPG');
+  background-image: url('@/assets/adf542ed-2f81-4a12-9c31-cf6c820bc64a.jpeg');
   background-size: cover;
   background-position: center 20%;
   color: white;
