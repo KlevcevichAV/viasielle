@@ -57,7 +57,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 3.5rem;
   margin-top: -4rem;
 }
 
@@ -100,6 +100,10 @@
 
   .names {
     font-size: 3rem;
+  }
+
+  .hero-content {
+    gap: 2.5rem;
   }
 }
 

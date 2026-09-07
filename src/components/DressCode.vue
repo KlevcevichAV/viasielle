@@ -2,13 +2,23 @@
   <section class="dress-code">
     <div class="container">
       <h2 class="section-title">Дресс-код</h2>
-      <p class="description">Для нас важно ваше присутствие, и нам будет очень приятно, если ваши образы поддержат атмосферу нашего дня</p>
+      <p class="description">Мы будем рады видеть Вас на нашей свадьбе. У нашего мероприятия дресс-кода нет, однако просим Вас (особенно женский пол) не включать в свои образы следующие цвета.</p>
+      <p class="description forbidden-caption">Единственная просьба — пожалуйста, избегайте в образе этих цветов:</p>
       <div class="palette">
-        <div v-for="(image, index) in images" 
-             :key="index" 
+        <div v-for="(colorItem, index) in forbiddenColors"
+             :key="index"
              class="swatch-wrapper"
              :style="{ transitionDelay: `${index * 50}ms` }">
-          <img :src="image" class="swatch" alt="Wedding color" />
+          <div class="swatch-frame">
+            <img :src="colorItem.src" class="swatch" :alt="`Запрещённый цвет: ${colorItem.name}`" />
+            <svg class="forbidden-icon" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" fill="none" stroke="white" stroke-width="4" />
+              <line x1="5.5" y1="18.5" x2="18.5" y2="5.5" stroke="white" stroke-width="4" stroke-linecap="round" />
+              <circle cx="12" cy="12" r="10" fill="none" stroke="#b3122e" stroke-width="2" />
+              <line x1="5.5" y1="18.5" x2="18.5" y2="5.5" stroke="#b3122e" stroke-width="2" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="swatch-name">{{ colorItem.name }}</span>
         </div>
       </div>
 
@@ -42,18 +52,16 @@ import VolumeIcon from '@/components/icons/VolumeIcon.vue'
 import backgroundMusicMen from '@/assets/1050761114_1_tiktok_69f75785db7821_01365855.mp3'
 import backgroundMusicWomen from '@/assets/-4884169657562792318 (audio-extractor.net).mp3'
 
-// Color palette images
-import img1 from '@/assets/dress-code/color/5332410083638811325.webp'
-import img2 from '@/assets/dress-code/color/5332410083638811329.webp'
-import img3 from '@/assets/dress-code/color/5332410083638811335.webp'
-import img4 from '@/assets/dress-code/color/5332410083638811340.webp'
-import img5 from '@/assets/dress-code/color/5332410083638811343.webp'
-import img6 from '@/assets/dress-code/color/5332410083638811346.webp'
-import img7 from '@/assets/dress-code/color/5332410083638811347.webp'
-import img8 from '@/assets/dress-code/color/5332410083638811349.webp'
-import img9 from '@/assets/dress-code/color/5332410083638811351.webp'
+// Запрещённые для гостей цвета в образе
+import colorWhite from '@/assets/dress-code/color/5258207226910942455.jpg'
+import colorBlack from '@/assets/dress-code/color/5258326910469612733.jpg'
+import colorRed from '@/assets/dress-code/color/5258326910469612735.jpg'
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9]
+const forbiddenColors = [
+  { src: colorWhite, name: 'Белый' },
+  { src: colorBlack, name: 'Чёрный' },
+  { src: colorRed, name: 'Красный' },
+]
 
 // Gallery images - using glob import if possible or manual
 // Since I can't easily glob with Vite in this environment without seeing the setup, I'll list them or use a helper
@@ -142,6 +150,12 @@ const closeGallery = () => {
   opacity: 0.9;
 }
 
+.forbidden-caption {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
 .palette {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -154,6 +168,10 @@ const closeGallery = () => {
 }
 
 .swatch-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
   transition: transform 0.3s ease;
 }
 
@@ -161,11 +179,36 @@ const closeGallery = () => {
   transform: translateY(-5px);
 }
 
+.swatch-frame {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 3px solid var(--color-background);
+  outline: 2px solid var(--color-primary);
+}
+
 .swatch {
-  width: 70px;
-  height: 85px;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.forbidden-icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+
+.swatch-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-heading);
 }
 
 .actions {
@@ -221,11 +264,11 @@ const closeGallery = () => {
     gap: 1.2rem;
   }
   
-  .swatch {
-    width: 60px;
+  .swatch-frame {
+    width: 75px;
     height: 75px;
   }
-  
+
   .actions {
     flex-direction: column;
     align-items: center;
@@ -248,9 +291,9 @@ const closeGallery = () => {
     gap: 0.8rem;
   }
   
-  .swatch {
-    width: 50px;
-    height: 65px;
+  .swatch-frame {
+    width: 64px;
+    height: 64px;
   }
 }
 </style>
