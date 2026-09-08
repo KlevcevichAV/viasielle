@@ -213,7 +213,6 @@ const submitForm = async () => {
       }
       return item
     })
-    message += `🍷 **Алкоголь:** ${alcoholList.join(', ')}\n`
     
     if (form.favoriteSong) {
       message += `🎵 **Любимая песня:** ${form.favoriteSong}\n`
