@@ -223,7 +223,7 @@ const submitForm = async () => {
     }
     
     if (form.wishes) {
-      message += `💬 **Пожелания:** ${form.wishes}\n`
+      message += `💬 **Аллергия:** ${form.wishes}\n`
     }
   }
   
