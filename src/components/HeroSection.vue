@@ -53,15 +53,17 @@
 }
 
 .hero-content {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 3.5rem;
-  margin-top: -4rem;
 }
 
 .main-title {
+  position: absolute;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   font-family: 'Cormorant Garamond', serif;
   font-size: 5rem;
   font-weight: 500;
@@ -72,10 +74,14 @@
 }
 
 .details {
+  position: absolute;
+  top: 82%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 2rem;
 }
 
 .names {
