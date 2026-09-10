@@ -89,6 +89,23 @@ const calculateCoords = () => {
   // обрезает всё, что ниже totalHeight, через overflow: hidden.
   const lastItemY = itemsWithCoords.value[itemsWithCoords.value.length - 1]?.y ?? curveHeight.value;
   totalHeight.value = lastItemY + TAIL_PX;
+
+  // Если текст последнего пункта многострочный и не помещается в TAIL_PX,
+  // подстраиваем высоту блока под него, чтобы текст не обрезался.
+  nextTick(() => {
+    if (!container.value) return;
+    const items = container.value.querySelectorAll('.program-item');
+    const lastEl = items[items.length - 1];
+    if (!lastEl) return;
+
+    const containerTop = container.value.getBoundingClientRect().top;
+    const lastBottom = lastEl.getBoundingClientRect().bottom - containerTop;
+    const requiredHeight = lastBottom + 16; // небольшой отступ под текстом
+
+    if (requiredHeight > totalHeight.value) {
+      totalHeight.value = requiredHeight;
+    }
+  });
 };
 
 const handleScroll = () => {
