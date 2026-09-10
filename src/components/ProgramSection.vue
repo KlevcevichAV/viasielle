@@ -3,7 +3,7 @@
     <h2 class="section-title">Программа дня</h2>
 
     <div class="timeline-container" ref="container" :style="{ height: totalHeight + 'px' }">
-      <svg class="timeline-svg" viewBox="0 0 400 1000" preserveAspectRatio="none">
+      <svg class="timeline-svg" viewBox="0 0 400 1000" preserveAspectRatio="none" :style="{ height: curveHeight + 'px' }">
         <path
             id="curve"
             d="M200,0 Q280,150 200,300 T200,600 T200,900 T200,1000"
@@ -57,7 +57,12 @@ const timeline = [
 const heart = ref(null);
 const container = ref(null);
 const itemsWithCoords = ref([]);
-const totalHeight = ref(1000);
+const totalHeight = ref(1000); // реальная высота блока на странице — кривая обрезается по ней
+const curveHeight = ref(1000); // "полный" масштаб кривой — задаёт расположение точек, не трогаем
+
+// Сколько кривой видно после последнего пункта, в пикселях.
+// Меняйте только это число, чтобы укоротить/удлинить хвост линии — расположение точек не меняется.
+const TAIL_PX = 50;
 
 const calculateCoords = () => {
   const path = document.querySelector('#curve');
@@ -66,18 +71,24 @@ const calculateCoords = () => {
   const pathLength = path.getTotalLength();
   const containerWidth = container.value.offsetWidth;
 
-  totalHeight.value = Math.max(800, containerWidth * 2.5);
-  const currentHeight = totalHeight.value;
+  // Масштаб кривой не меняется — расположение точек остаётся прежним.
+  curveHeight.value = Math.max(800, containerWidth * 2.5);
 
   const steps = [0.1, 0.3, 0.5, 0.7, 0.9];
 
   itemsWithCoords.value = timeline.map((item, index) => {
     const svgPoint = path.getPointAtLength(steps[index] * pathLength);
     const xPixel = (svgPoint.x / 400) * containerWidth;
-    const yPixel = (svgPoint.y / 1000) * currentHeight;
+    const yPixel = (svgPoint.y / 1000) * curveHeight.value;
 
     return { ...item, x: xPixel, y: yPixel, progressStep: steps[index], reached: false };
   });
+
+  // Реальная высота блока — только до последнего пункта плюс небольшой хвост.
+  // Кривая рисуется в исходном масштабе (curveHeight), а .timeline-container
+  // обрезает всё, что ниже totalHeight, через overflow: hidden.
+  const lastItemY = itemsWithCoords.value[itemsWithCoords.value.length - 1]?.y ?? curveHeight.value;
+  totalHeight.value = lastItemY + TAIL_PX;
 };
 
 const handleScroll = () => {
@@ -171,6 +182,7 @@ onUnmounted(() => {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+  overflow: hidden; /* обрезает кривую сразу после последнего пункта (+ TAIL_PX) */
 }
 
 .timeline-svg {
