@@ -66,9 +66,13 @@ import WineBottleIcon from '@/components/icons/WineBottleIcon.vue'
   flex-shrink: 0;
 }
 
-.money-text {
-  white-space: nowrap;
-  font-size: clamp(0.55rem, 3.3vw, 1.1rem);
+/* На узких экранах фраза естественно переносится в 2 строки при обычном
+   размере шрифта — принудительный nowrap там сделал бы текст нечитаемым.
+   На широких экранах, где фраза помещается целиком, держим её в одну строку. */
+@media (min-width: 900px) {
+  .money-text {
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 768px) {

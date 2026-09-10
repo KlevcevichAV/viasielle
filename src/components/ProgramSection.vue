@@ -66,12 +66,10 @@ const calculateCoords = () => {
   const pathLength = path.getTotalLength();
   const containerWidth = container.value.offsetWidth;
 
-  totalHeight.value = Math.max(500, containerWidth * 2.5 * (timeline.length / 5));
+  totalHeight.value = Math.max(800, containerWidth * 2.5);
   const currentHeight = totalHeight.value;
 
-  const steps = timeline.length > 1
-      ? timeline.map((_, i) => 0.08 + i * (0.84 / (timeline.length - 1)))
-      : [0.5];
+  const steps = [0.1, 0.3, 0.5, 0.7, 0.9];
 
   itemsWithCoords.value = timeline.map((item, index) => {
     const svgPoint = path.getPointAtLength(steps[index] * pathLength);
@@ -211,8 +209,8 @@ onUnmounted(() => {
 }
 
 .program-item.reached .dot {
-  background-color: #b3122e;
-  box-shadow: 0 0 0 2px #b3122e;
+  background-color: #78866b;
+  box-shadow: 0 0 0 2px #78866b;
 }
 
 /* Позиционирование элементов слева от кривой */
