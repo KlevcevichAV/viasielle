@@ -209,8 +209,8 @@ onUnmounted(() => {
 }
 
 .program-item.reached .dot {
-  background-color: #78866b;
-  box-shadow: 0 0 0 2px #78866b;
+  background-color: #b3122e;
+  box-shadow: 0 0 0 2px #b3122e;
 }
 
 /* Позиционирование элементов слева от кривой */
