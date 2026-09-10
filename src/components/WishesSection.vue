@@ -2,15 +2,14 @@
   <section class="wishes">
     <div class="container">
       <h2 class="section-title">Детали</h2>
-      <p class="description">
-        Пожалуйста, не ломайте голову над выбором подарка! Наши вкусы настолько специфичны, что угодить нам могут только
-        деньги!
+      <p class="description money-text">
+        Мы будем благодарны денежным подаркам 💰 и обещаем найти им самое лучшее применение ❤️
       </p>
 
       <div class="wine-text-container">
         <WineBottleIcon :size="35" :rotate="-15" color="#b3122e" class="wine-icon" />
         <p class="description wine-description">
-          Не пытайтесь угадать наш вкус, бутылочку алкоголя на Ваш вкус будет приятным дополнением к подарку!
+          Если вы планировали взять с собой букетик цветов, то бутылочка интересного алкоголя, на ваш вкус, станет отличной альтернативой
         </p>
       </div>
     </div>
@@ -65,6 +64,11 @@ import WineBottleIcon from '@/components/icons/WineBottleIcon.vue'
 
 .wine-icon {
   flex-shrink: 0;
+}
+
+.money-text {
+  white-space: nowrap;
+  font-size: clamp(0.55rem, 3.3vw, 1.1rem);
 }
 
 @media (max-width: 768px) {

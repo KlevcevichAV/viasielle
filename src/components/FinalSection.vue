@@ -2,8 +2,7 @@
   <section class="final-section">
     <div class="container">
       <div class="content">
-        <h3 class="title">Топ-1 мест, куда сходить этой осенью: <span class="main-text">наша свадьба!</span></h3>
-        <p class="sub-text">Будем очень рады разделить этот день с вами!</p>
+        <h3 class="title">Будем очень рады разделить этот день с вами!</h3>
         <div class="final-photo-container">
           <img src="@/assets/a1ff1484-f383-42f6-810f-fb56e760270f.jpeg" alt="Николай и Оксана" class="final-photo" />
         </div>

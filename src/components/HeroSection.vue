@@ -29,17 +29,23 @@
   align-items: center;
   justify-content: center;
   /* Используем твое фоновое изображение */
-  background-image: url('@/assets/adf542ed-2f81-4a12-9c31-cf6c820bc64a.jpeg');
+  background-image: url('@/assets/hero-main.jpg');
   background-size: cover;
   background-position: center 20%;
+  background-repeat: no-repeat;
   color: white;
   text-align: center;
   overflow: hidden;
 }
 
+/* Фото вертикальное — на широких десктопных экранах background-size: cover
+   обрезает его почти целиком. Переключаемся на contain, чтобы фото было
+   видно полностью, а свободные поля по бокам заливаем тёмным фоном. */
 @media (min-width: 1024px) {
   .hero {
-    background-position: center 25%;
+    background-size: contain;
+    background-position: center;
+    background-color: var(--vt-c-black);
   }
 }
 
@@ -53,17 +59,15 @@
 }
 
 .hero-content {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  margin-top: -4rem;
 }
 
 .main-title {
-  position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
   font-family: 'Cormorant Garamond', serif;
   font-size: 5rem;
   font-weight: 500;
@@ -74,14 +78,10 @@
 }
 
 .details {
-  position: absolute;
-  top: 82%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-top: 2rem;
 }
 
 .names {
@@ -114,7 +114,61 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .main-title {
+    position: absolute;
+    top: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  .details {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .names {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 600px) {
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .main-title {
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+  }
+
+  .details {
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    margin-top: 0;
+  }
+
   .names {
     font-size: 2.2rem;
     white-space: nowrap;
