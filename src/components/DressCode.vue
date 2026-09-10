@@ -21,20 +21,6 @@
           <span class="swatch-name">{{ colorItem.name }}</span>
         </div>
       </div>
-
-      <div class="actions">
-        <div class="mute-control">
-          <button class="mute-btn" @click="toggleMute" :title="isMuted ? 'Включить звук' : 'Выключить звук'">
-            <VolumeIcon :muted="isMuted" :size="24" color="var(--color-text)" />
-          </button>
-        </div>
-        <button class="btn-outline" @click="openGallery('women')">
-          Примеры образов для девушек
-        </button>
-        <button class="btn-outline" @click="openGallery('men')">
-          Примеры образов для мужчин
-        </button>
-      </div>
     </div>
 
     <ImageGallery 
