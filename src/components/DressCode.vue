@@ -23,10 +23,48 @@
       </div>
     </div>
 
-    <ImageGallery 
-      :images="currentGalleryImages" 
-      :is-open="isGalleryOpen" 
-      @close="closeGallery" 
+    <div class="video-block">
+      <div class="video-caption">
+        <p class="video-caption-text">Почему не стоит пренебрегать дресс-кодом</p>
+        <svg class="video-caption-arrow video-caption-arrow--horizontal" viewBox="0 0 120 60" fill="none">
+          <path d="M4 8 C 40 4, 70 30, 108 30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <path d="M92 19 L 108 30 L 90 35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+        <svg class="video-caption-arrow video-caption-arrow--vertical" viewBox="0 0 60 90" fill="none">
+          <path d="M10 4 C 4 30, 30 55, 30 82" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <path d="M19 68 L 30 82 L 39 66" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </svg>
+      </div>
+
+      <div class="video-player" :class="{ 'is-playing': isVideoPlaying }">
+        <video
+          ref="dressCodeVideo"
+          class="video-el"
+          src="@/assets/dress-code/video/IMG_9196.mp4"
+          playsinline
+          :controls="isVideoPlaying"
+          @play="isVideoPlaying = true"
+          @pause="isVideoPlaying = false"
+          @ended="isVideoPlaying = false"
+        ></video>
+        <button
+          v-if="!isVideoPlaying"
+          class="video-play-btn"
+          type="button"
+          aria-label="Воспроизвести видео"
+          @click="playVideo"
+        >
+          <svg viewBox="0 0 24 24" class="video-play-icon">
+            <polygon points="6,4 20,12 6,20" fill="currentColor" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <ImageGallery
+      :images="currentGalleryImages"
+      :is-open="isGalleryOpen"
+      @close="closeGallery"
     />
   </section>
 </template>
@@ -59,6 +97,16 @@ const galleryType = ref('women')
 const isMuted = ref(false)
 const audioMen = ref(null)
 const audioWomen = ref(null)
+
+const dressCodeVideo = ref(null)
+const isVideoPlaying = ref(false)
+
+const playVideo = () => {
+  if (dressCodeVideo.value) {
+    dressCodeVideo.value.play().catch(e => console.log('Video play failed:', e))
+  }
+}
+
 
 onMounted(() => {
   audioMen.value = new Audio(backgroundMusicMen)
@@ -197,6 +245,116 @@ const closeGallery = () => {
   color: var(--color-heading);
 }
 
+.video-block {
+  max-width: 700px;
+  margin: 2rem auto 0;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.video-caption {
+  flex: 0 0 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.video-caption-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.35;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 0;
+}
+
+.video-caption-arrow {
+  color: var(--color-primary);
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+.video-caption-arrow--horizontal {
+  width: 100px;
+  height: 50px;
+}
+
+.video-caption-arrow--vertical {
+  display: none;
+  width: 40px;
+  height: 60px;
+}
+
+.video-player {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 640px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+.video-play-btn {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.video-play-btn:hover {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.video-play-btn::before {
+  content: '';
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.video-play-btn:hover::before {
+  transform: scale(1.08);
+}
+
+.video-play-icon {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
 .actions {
   display: flex;
   justify-content: center;
@@ -249,10 +407,28 @@ const closeGallery = () => {
   .palette {
     gap: 1.2rem;
   }
-  
+
   .swatch-frame {
     width: 75px;
     height: 75px;
+  }
+
+  .video-block {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .video-caption {
+    flex: 0 0 auto;
+    gap: 0.25rem;
+  }
+
+  .video-caption-arrow--horizontal {
+    display: none;
+  }
+
+  .video-caption-arrow--vertical {
+    display: block;
   }
 
   .actions {
