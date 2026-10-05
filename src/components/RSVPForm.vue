@@ -2,9 +2,6 @@
   <section class="rsvp">
     <div class="container">
       <h2 class="section-title">RSVP</h2>
-      <p class="description">
-        Пожалуйста, подтвердите ваше присутствие до 02.10 включительно, заполнив форму ниже.
-      </p>
 
       <v-form ref="formRef" v-model="isFormValid" @submit.prevent="submitForm" class="rsvp-form">
         <!-- Attendance Question -->
